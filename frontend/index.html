@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyslexia-Friendly Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+        header {
+            background-color: #007acc;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #007acc;
+        }
+        label {
+            display: block;
+            margin: 1em 0 0.5em;
+            font-weight: bold;
+        }
+        input, select, button, textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #007acc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f99;
+        }
+        .result {
+            margin-top: 2em;
+            padding: 1em;
+            background: #e0f7fa;
+            border-left: 4px solid #007acc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dyslexia Test & Friendly Conversion</h1>
+    </header>
+    <div class="container">
+        <section id="dyslexia-test">
+            <h2>Dyslexia Test</h2>
+            <p>Answer the following questions to assess for signs of dyslexia:</p>
+            <label for="question1">Do you find it difficult to read certain fonts or text sizes?</label>
+            <select id="question1">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="question2">Do you often mix up letters like "b" and "d"?</label>
+            <select id="question2">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="question3">Do you find it challenging to concentrate while reading?</label>
+            <select id="question3">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button onclick="evaluateTest()">Submit</button>
+            <div id="test-result" class="result" style="display: none;"></div>
+        </section>
+
+        <section id="convert-website">
+            <h2>Convert Website to Dyslexia-Friendly View</h2>
+            <label for="website-url">Enter Website URL:</label>
+            <input type="url" id="website-url" placeholder="https://example.com">
+
+            <label for="font">Choose Dyslexia-Friendly Font:</label>
+            <select id="font">
+                <option value="OpenDyslexic">OpenDyslexic</option>
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+
+            <label for="bg-color">Background Color:</label>
+            <input type="color" id="bg-color" value="#f3f3f3">
+
+            <label for="text-size">Text Size:</label>
+            <input type="number" id="text-size" min="12" max="48" value="16">
+
+            <button onclick="convertWebsite()">Convert</button>
+            <div id="converted-view" class="result" style="display: none;"></div>
+        </section>
+    </div>
+
+    <script>
+        function evaluateTest() {
+            const q1 = document.getElementById('question1').value;
+            const q2 = document.getElementById('question2').value;
+            const q3 = document.getElementById('question3').value;
+            
+            let score = 0;
+            if (q1 === 'yes') score++;
+            if (q2 === 'yes') score++;
+            if (q3 === 'yes') score++;
+
+            const result = document.getElementById('test-result');
+            if (score >= 2) {
+                result.textContent = "You may have signs of dyslexia. Consider consulting a specialist.";
+            } else {
+                result.textContent = "You do not show strong signs of dyslexia based on this test.";
+            }
+            result.style.display = 'block';
+        }
+
+        function convertWebsite() {
+            const url = document.getElementById('website-url').value;
+            const font = document.getElementById('font').value;
+            const bgColor = document.getElementById('bg-color').value;
+            const textSize = document.getElementById('text-size').value;
+
+            if (!url) {
+                alert('Please enter a valid URL');
+                return;
+            }
+
+            const result = document.getElementById('converted-view');
+            result.innerHTML = `
+                <p>Converted website view:</p>
+                <iframe src="${url}" style="width: 100%; height: 400px; border: none; font-family: ${font}; background-color: ${bgColor}; font-size: ${textSize}px;"></iframe>
+            `;
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
