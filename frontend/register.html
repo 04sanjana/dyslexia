@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0A192F;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 40px;
+            font-size: 78px;
+        }
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+        .full-width {
+            width: 100% !important;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #1E90FF;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #00BFFF;
+        }
+        .terms {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="date" required>
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group">
+                <select required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" placeholder="City" required>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="State" required>
+                <input type="text" placeholder="Country" required>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+            </div>
+            <div class="terms">
+                <label for="terms">I agree to the Terms and Conditions</label>
+                <input type="checkbox" id="terms" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

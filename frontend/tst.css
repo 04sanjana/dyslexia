@@ -1,84 +1,98 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
+/* Center the entire quiz */
 .quiz-container {
-    width: 450px;
-    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 600px; /* Adjust width as needed */
+    margin: auto; /* Centers horizontally */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background: #f9f9f9; /* Light background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.progress-bar {
-    width: 100%;
-    height: 10px;
-    background: #e0e0e0;
-    border-radius: 5px;
+/* Center the image */
+#question-image {
+    width: 80%; /* Adjust image size */
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Center the question text */
+#question {
+    font-size: 20px;
+    font-weight: bold;
     margin-bottom: 10px;
-    overflow: hidden;
 }
 
-.progress {
-    width: 0%;
-    height: 100%;
-    background: #007bff;
-    transition: width 0.3s ease-in-out;
-}
-
+/* Center the options */
 #options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 15px 0;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Spacing between options */
 }
 
+/* Style buttons */
 .option-btn {
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: white;
-    border-radius: 5px;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 150px; /* Ensures consistent button width */
 }
 
 .option-btn:hover {
-    background: #007bff;
+    border: 2px solid #000;
+}
+
+/* Highlight correct and incorrect answers */
+.correct {
+    background-color: #54c6f3 !important; /* Green */
     color: white;
 }
 
-.option-btn.selected {
-    background: #007bff;
+.incorrect {
+    background-color: #54c6f3;
     color: white;
 }
-
-.btn-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 15px;
-    background: #007bff;
+#next-btn, #prev-btn {
+    padding: 12px 24px;
+    font-size: 18px; 
+    font-weight: bold;
+    background-color: #007bff; 
     color: white;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
 }
 
-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
+#next-btn:hover, #prev-btn:hover {
+    background-color: #0A192F; 
 }
-
-button:hover:not(:disabled) {
-    background: #0056b3;
+body
+{
+    background-color: #0A192F;
+}
+#submit-btn{
+    padding: 12px 24px;
+    font-size: 18px; 
+    font-weight: bold;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
 }

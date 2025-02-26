@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #0A192F; color: white; text-align: center; padding: 20px;">
+
+    <div style="max-width: 600px; margin: auto; padding: 20px; background: #1F2A48; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+        <h1 style="font-size: 28px; color: #4CAF50;">🎉 Quiz Completed! 🎉</h1>
+        <p id="score" style="font-size: 20px;"></p>
+        <p id="feedback-message" style="font-size: 18px;"></p>
+        <p id="dyslexia-message" style="font-size: 16px; color: #FFDD57;"></p>
+
+        <button onclick="restartQuiz()" style="padding: 12px 24px; font-size: 18px; font-weight: bold; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; margin-top: 20px;">
+            🔄 Try Again
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const score = parseInt(urlParams.get("score")) || 0;
+            const totalQuestions = 20;
+
+            document.getElementById("score").innerHTML = `You scored <strong>${score} / ${totalQuestions}</strong>`;
+
+            let feedbackMessage = "";
+            let dyslexiaMessage = "";
+
+            if (score > 15) {
+                feedbackMessage = "🌟 Amazing! Your reading and processing skills are strong!";
+            } else if (score > 10) {
+                feedbackMessage = "😊 Great effort! Keep practicing and improving!";
+            } else {
+                feedbackMessage = "💡 Don't worry! Learning takes time, and practice makes perfect!";
+            }
+
+            if (score <= 10) {
+                dyslexiaMessage = "🔍 Based on your responses, you may experience reading difficulties. Consider consulting a specialist if reading challenges persist.";
+            }
+
+            document.getElementById("feedback-message").innerHTML = feedbackMessage;
+            document.getElementById("dyslexia-message").innerHTML = dyslexiaMessage;
+        });
+
+        function restartQuiz() {
+            window.location.href = "test.html";
+        }
+    </script>
+
+</body>
+</html>

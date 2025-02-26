@@ -14,13 +14,14 @@
         </div>
         <div id="quiz-box">
             <h3 id="question">Loading question...</h3>
-            <img id="question-image" src="images/dog_bog.jpg"  style=" width: 100%; max-height: 800px; object-fit: cover; border-radius: 10px;">
-            <div id="options"></div>
+            <img id="question-image" src="images/qn1.jpg"  style="width: 80%; max-height: 400px; object-fit: contain; border-radius: 10px;">
+            <div id="options"></div> <!-- Ensure this is EMPTY initially -->
         </div>
 
         <div class="btn-container">
             <button id="prev-btn" onclick="prevQuestion()">Previous</button>
             <button id="next-btn" onclick="nextQuestion()">Next</button>
+            <button id="submit-btn" onclick="showResult()" style="display: none;">Submit</button>
         </div>
     </div>
     <script src="script.js"></script>
